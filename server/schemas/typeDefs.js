@@ -33,18 +33,14 @@ const typeDefs = gql`
     }
     type Auth {
         token: ID!
-        user: User
+        user: User                                                    
       }
     type Mutation {
         addUser(name: String!, email: String!, password: String!, salonName: String!): User
-<<<<<<< HEAD
-    }
-=======
         addClient(firstName: String!, lastName: String!, email: String, phone: Int): User
         
     }
     
->>>>>>> main
 `
 
 module.exports = typeDefs;
