@@ -1,3 +1,7 @@
+.App {
+  background-color: #FCF9F4;
+}
+
 .navbar-nav {
   padding: 18px;
 }
@@ -12,6 +16,9 @@ a.nav-link {
 }
 
 span.navbar-text {
-  color: #988374;
-  
+  color: #988374; 
+}
+
+.calendarContainer {
+  margin: 50px;
 }
