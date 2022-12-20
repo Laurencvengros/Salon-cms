@@ -31,3 +31,16 @@ div.row-cols-1 {
 #home {
   margin-top: 50px;
 }
+
+.footer {
+  display: flex;
+}
+
+.footerIcon {
+  justify-content: flex-end;
+}
+
+.createdBy {
+  justify-content: flex-start;
+  font-size: 1rem;
+}
