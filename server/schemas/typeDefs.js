@@ -10,7 +10,11 @@ const typeDefs = gql`
         _id: ID!
         firstName: String!
         lastName: String!
+<<<<<<< HEAD
         email: String!
+=======
+        email: String
+>>>>>>> main
         phone: Int
     }
     type User {
@@ -33,7 +37,14 @@ const typeDefs = gql`
       }
     type Mutation {
         addUser(name: String!, email: String!, password: String!, salonName: String!): User
+<<<<<<< HEAD
     }
+=======
+        addClient(firstName: String!, lastName: String!, email: String, phone: Int): User
+        
+    }
+    
+>>>>>>> main
 `
 
 module.exports = typeDefs;
