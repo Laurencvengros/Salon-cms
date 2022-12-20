@@ -7,12 +7,18 @@ function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg">
       <Container>
-        <NavLink to="/home">Salon CMS</NavLink>
+        <NavLink to="/home" className="navBrand">
+          Salon CMS
+        </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="/clients">Clients</NavLink>
-            <NavLink to="/calendar">Calendar</NavLink>
+            <NavLink to="/clients" className="navLinks">
+              Clients
+            </NavLink>
+            <NavLink to="/calendar" className="navLinks">
+              Calendar
+            </NavLink>
           </Nav>
           <Nav>
             <Navbar.Text>

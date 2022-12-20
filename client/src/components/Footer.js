@@ -10,14 +10,27 @@ function Footer() {
         <footer className="footer">
           <div className="createdBy">
             <h4 className="createdBy">
-              Created by:{" "}
-              <a href="https://github.com/kelsieszost">Kelsie Szost,</a>
-              <a href="https://github.com/laurencvengros">Lauren Cvengros</a>
-              andn <a href="https://github.com/mwells012">Michaela Wells</a>
+              Created by:
+              <a className="createdName" href="https://github.com/kelsieszost">
+                Kelsie Szost,
+              </a>
+              <a
+                className="createdName"
+                href="https://github.com/laurencvengros"
+              >
+                Lauren Cvengros
+              </a>
+              and
+              <a className="createdName" href="https://github.com/mwells012">
+                Michaela Wells
+              </a>
             </h4>
           </div>
           <div>
-            <a className="footerIcon" href="https://github.com/kelsieszost">
+            <a
+              className="footerIcon"
+              href="https://github.com/Laurencvengros/Salon-cms"
+            >
               <FaGithub />
             </a>
           </div>
