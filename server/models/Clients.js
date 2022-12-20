@@ -8,15 +8,14 @@ const clientSchema = new Schema(
           trim: true
         },
         lastName: {
-          type: String,
+          type: String, 
           required: true,
           trim: true
         },
         email: {
             type: String,
-            required: true,
-            unique: true,
-            match: [/.+@.+\..+/, 'Please enter a valid email address'],
+            
+            
         },
         phone: {
             type: Number,

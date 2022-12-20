@@ -2,9 +2,10 @@ const User = require('../models/User');
 
 const resolvers ={
     Query : {
-        me: async () => {
+        user: async () => {
             return User.find();
         },
+        
     },
     Mutation: {
         addUser: async(parent, { name, email, password, salonName}) =>{
