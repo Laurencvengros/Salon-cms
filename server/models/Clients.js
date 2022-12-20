@@ -22,11 +22,7 @@ const clientSchema = new Schema(
             type: Number,
             required: true,
         },
-        clientId: {
-            type: String,
-            reqired: true
-        }
-
+        
     }
 );
 

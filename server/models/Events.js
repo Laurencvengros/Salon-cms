@@ -19,7 +19,7 @@ const eventSchema = new Schema(
             type: Date,
             required: true,
         },
-        clientId: {
+        clientName: {
             type: Schema.Types.ObjectId,
             ref: 'Clients'
         },
