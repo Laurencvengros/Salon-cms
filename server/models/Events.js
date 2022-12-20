@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const clientSchema = require('./Clients');
+
 const eventSchema = new Schema(
     {
         event_id: {
@@ -19,10 +21,8 @@ const eventSchema = new Schema(
             type: Date,
             required: true,
         },
-        clientName: {
-            type: Schema.Types.ObjectId,
-            ref: 'Clients'
-        },
+        client:  [clientSchema]
+        
     },
 );
 
