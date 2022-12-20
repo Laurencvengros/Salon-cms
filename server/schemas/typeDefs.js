@@ -9,7 +9,7 @@ const typeDefs = gql`
         firstName: String!
         lastName: String!
         email: String!
-        phone: Number
+        phone: Int
     }
     type User {
         _id: ID!
@@ -21,8 +21,8 @@ const typeDefs = gql`
     type Event {
         event_id: ID!
         title: String!
-        start: Date!
-        end: Date!
+        start: Int
+        end: Int
         client: [Clients]
     }
     type Auth {
