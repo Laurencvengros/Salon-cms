@@ -1,12 +1,10 @@
 import "./App.css";
-import Schedule from "./components/Calendar";
-import Navigation from "./components/Navigation";
+import Pages from "./components/Routes";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Schedule />
+      <Pages />
     </div>
   );
 }
