@@ -15,8 +15,7 @@ const clientSchema = new Schema(
         email: {
             type: String,
             required: true,
-            unique: true,
-            match: [/.+@.+\..+/, 'Please enter a valid email address'],
+            
         },
         phone: {
             type: Number,
