@@ -4,6 +4,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/salon-cms', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   
+
 });
 
 module.exports = mongoose.connection;
