@@ -22,6 +22,10 @@ a.navBrand {
 
 }
 
+a.navBrand:hover {
+  color: #706E51;
+}
+
 a.navLinks {
   padding-left: 4rem;
   text-decoration: none;
@@ -63,6 +67,51 @@ div.row-cols-1 {
 
 .homeTitle {
   padding: 1rem;
+}
+
+/* CLIENT PAGE  */
+
+.addClientBtn {
+  margin-left: 50px;
+  background-color: #706E51;
+  color: white;
+  border: none;
+  border-radius: .2rem;
+}
+
+/* ADD NEW CLIENT FORM  */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+}
+
+.create h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.create button {
+  background-color: #706E51;
+  color: white;
+  border: none;
+  border-radius: .2rem;
+  padding: 8px;
+  margin-top: 1rem;
 }
 /* FOOTER  */
 
