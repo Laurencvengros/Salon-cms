@@ -35,6 +35,13 @@ const resolvers ={
                 {new: true, runValidators: true}
             );
         },
+        editClient: async(parent, {userId, clientId, firstName, lastName, email, phone}) => {
+            return User.findOneAndUpdate(
+                {_id: userId},
+                { $set: {clients:{_id:clientId, firstName, lastName, email, phone}}},
+                {new: true, runValidators: true}
+            );
+        },
      }
     
 }

@@ -4,8 +4,7 @@ const typeDefs = gql`
     type Query{
         users: [User]
         user(userId: ID!): User
-        clients: Clients
-        event: Event
+        
     }
     type Clients {
         _id: ID!
@@ -37,6 +36,7 @@ const typeDefs = gql`
         addUser(name: String!, email: String!, password: String!, salonName: String!): User
         addClient(userId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
         deleteClient(userId: ID!, clientId: ID!): User
+        editClient(userId: ID!, clientId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
         
     }
     
