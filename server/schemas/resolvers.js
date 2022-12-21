@@ -11,11 +11,7 @@ const resolvers ={
         },
         
     },
-    // Query: {
-    //     clients: async () =>{
-    //         return Clients.find();
-    //     },
-    // },
+    
     Mutation: {
         addUser: async(parent, { name, email, password, salonName}) =>{
             return User.create({name, email, password, salonName});
@@ -31,7 +27,21 @@ const resolvers ={
                     runValidators: true,
                 }
             );
-        }
+        },
+        deleteClient: async(parent, {userId, clientId}) => {
+            return User.findOneAndUpdate(
+                {_id: userId},
+                { $pull: {clients:{_id:clientId}}},
+                {new: true, runValidators: true}
+            );
+        },
+        editClient: async(parent, {userId, clientId, firstName, lastName, email, phone}) => {
+            return User.findOneAndUpdate(
+                {_id: userId},
+                { $set: {clients:{_id:clientId, firstName, lastName, email, phone}}},
+                {new: true, runValidators: true}
+            );
+        },
      }
     
 }
