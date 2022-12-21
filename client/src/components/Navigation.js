@@ -21,8 +21,11 @@ function Navigation() {
             </NavLink>
           </Nav>
           <Nav>
-            <Navbar.Text>
-              Signed in as: <a href="#login">Salon Owner</a>
+            <Navbar.Text className="navText">
+              Signed in as:{" "}
+              <a className="signedIn" href="#login">
+                Salon Owner
+              </a>
             </Navbar.Text>
           </Nav>
         </Navbar.Collapse>

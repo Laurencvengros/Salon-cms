@@ -8,8 +8,10 @@ function Home(props) {
   return (
     <Card id="home" className="text-center" style={cardStyle}>
       <Card.Body>
-        <Card.Title>Welcome to Your Salon Dashboard</Card.Title>
-        <Card.Text>
+        <Card.Title className="homeTitle">
+          Welcome to Your Salon Dashboard
+        </Card.Title>
+        <Card.Text className="homeText">
           “Without creativity, there would be no progress, and we would be
           forever repeating the same patterns.” —Edward de Bono
         </Card.Text>

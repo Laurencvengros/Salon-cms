@@ -1,13 +1,15 @@
 .App {
-  background-color: #FCF9F4;
 }
+
+
+/* NAVBAR  */
 
 .navbar-nav {
   padding: 18px;
 }
 
 nav.navbar-light {
-  background-color: #988374;
+  background-color: #B19C8D;
   margin: 50px;
   margin-top: 10px;
 }
@@ -23,12 +25,19 @@ a.navBrand {
 a.navLinks {
   padding-left: 4rem;
   text-decoration: none;
-  color: #FCF9F4;;
+  color: #FCF9F4;
 }
 
 span.navbar-text {
-  color: #988374; 
+  color: #FCF9F4;
 }
+
+.signedIn {
+  padding: .5rem;
+}
+
+
+/* CALENDAR */
 
 .calendarContainer {
   margin: 50px;
@@ -41,13 +50,25 @@ div.row-cols-1 {
   padding-bottom: 50px;
 }
 
+
+/* HOMEPAGE */
+
 #home {
   margin-top: 50px;
+  padding: 2rem;
+  background-color: #FCF9F4;
+  margin-left: 50px;
+  margin-right: 50px;
 }
+
+.homeTitle {
+  padding: 1rem;
+}
+/* FOOTER  */
 
 .footer {
   display: flex;
-  background-color: #988374;
+  background-color: #B19C8D;
   color: #FCF9F4;
   align-items: center;
   margin: 50px;
