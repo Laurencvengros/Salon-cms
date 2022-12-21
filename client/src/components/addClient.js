@@ -9,6 +9,7 @@ const AddClient = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newClient = { firstName, lastName, email, phone };
+
     console.log(newClient);
   };
 
