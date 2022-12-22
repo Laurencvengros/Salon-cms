@@ -17,6 +17,7 @@ const typeDefs = gql`
         _id: ID!
         name: String!
         email: String!
+        password: String!
         salonName: String!
         clients: [Clients]
     }
@@ -32,12 +33,19 @@ const typeDefs = gql`
         user: User                                                    
       }
     
+    type Query {
+        profiles: [User]!
+        profile(userID: ID!): User
+        me: User
+    }
+
     type Mutation {
         addUser(name: String!, email: String!, password: String!, salonName: String!): User
+        login(email: String!, password: String!): Auth
+
         addClient(userId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
         deleteClient(userId: ID!, clientId: ID!): User
         editClient(userId: ID!, clientId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
-        
     }
     
 `

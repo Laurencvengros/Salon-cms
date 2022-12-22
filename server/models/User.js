@@ -8,6 +8,7 @@ const userSchema = new Schema(
         name:{
             type: String,
             required: true,
+            trim: true
         },
         email: {
             type: String,
@@ -18,10 +19,12 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: true,
+            minlength: 5,
         },
         salonName: {
             type: String,
             required: true,
+            trim: true,
         },
         clients: [clientSchema]
     }

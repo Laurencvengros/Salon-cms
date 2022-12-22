@@ -1,6 +1,11 @@
 const User = require('../models/User');
 const Clients = require('../models/User');
 
+const { AuthenticationError } = require('apollo-server-express');
+const { Profile } = require('../models');
+const { signToken } = require('../utils/auth');
+
+
 const resolvers ={
     Query : {
         users: async () => {
@@ -8,6 +13,12 @@ const resolvers ={
         },
         user: async(parent, {userId}) =>{
             return User.findOne({_id:userId});
+        },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return Profile.findOne({ _id:context.user._id });
+            }
+            throw new AuthenticationError('You need to be logged in first!');
         },
         
     },
@@ -42,6 +53,23 @@ const resolvers ={
                 {new: true, runValidators: true}
             );
         },
+        login: async (parent, { email, password }) => {
+            const profile = await Profile.findOne({ email });
+      
+            if (!profile) {
+              throw new AuthenticationError('Hm, please check your email and password.');
+            }
+      
+            const correctPw = await profile.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Hm, please check your email and password.');
+            }
+      
+            const token = signToken(profile);
+            return { token, profile };
+          },
+      
      }
     
 }
