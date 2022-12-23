@@ -1,4 +1,5 @@
 const jwt = require ('jsonwebtoken');
+const { Error } = require('mongoose');
 
 const secret = 'superdupersecret007';
 const expiration = '12h';
@@ -14,7 +15,7 @@ module.exports = {
       }
   
       if (!token) {
-        return req;
+        return { message: ' no token!' };
       }
   
       // if token can be verified, add the decoded user's data to the request so it can be accessed in the resolver
@@ -22,6 +23,7 @@ module.exports = {
         const { data } = jwt.verify(token, secret, { maxAge: expiration });
         req.user = data;
       } catch {
+        console.error(Error)
         console.log('Invalid token');
       }
   
