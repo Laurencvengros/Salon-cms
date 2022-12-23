@@ -29,7 +29,7 @@ const typeDefs = gql`
     }
     type Auth {
         token: ID!
-        user: User                                                    
+        me: User                                                   
       }
     
     type Mutation {
@@ -37,7 +37,6 @@ const typeDefs = gql`
         addClient(userId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
         deleteClient(userId: ID!, clientId: ID!): User
         editClient(userId: ID!, clientId: ID!, firstName: String!, lastName: String!, email: String, phone: Int): User
-        
     }
     
 `

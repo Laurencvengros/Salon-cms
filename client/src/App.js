@@ -1,5 +1,8 @@
+import React from 'react';
+
 import "./App.css";
 import Pages from "./components/Routes";
+
 
 function App() {
   return (
