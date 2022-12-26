@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { ADD_CLIENT } from "../utils/mutations";
+import { useMutation } from "@apollo/client"
 
 const AddClient = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
-  const handleSubmit = (e) => {
+  const [addClient, { error }] = useMutation(ADD_CLIENT);
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newClient = { firstName, lastName, email, phone };
+    const { data } = await addClient({
+      variables: newClient
+    })
 
-    console.log(newClient);
+    console.log(data);
+
   };
 
   return (

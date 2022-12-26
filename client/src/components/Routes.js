@@ -11,19 +11,19 @@ import SignUp from "./Signup";
 
 const Pages = () => {
   return (
-    
-      <Router>
-        <Navigation />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/clients" element={<Clients/>} />
-            <Route path="/calendar" element={<Calendar/>} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
-        <Footer />
-      </Router>
-    
+
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/clients" element={<Clients />} />
+        <Route exact path="/calendar" element={<Calendar />} />
+        <Route exact path="/signup" element={<SignUp />} />
+      </Routes>
+      <Footer />
+    </Router>
+
   );
 };
 
