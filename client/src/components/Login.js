@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import Container from 'react-bootstrap/Container';
+
 
 import Auth from '../utils/auth';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  //const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [userData, setUserData] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
+    setUserData({
+      ...userData,
       [name]: value,
     });
   };
@@ -23,58 +23,77 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    console.log(userData);
     try {
-      const { data } = await Login({
-        variables: { ...formState },
+      const { data } = await login({
+        variables: { ...userData},
       });
 
       Auth.login(data.login.token);
+      console.log('success')
     } catch (e) {
       console.error(e);
+      console.log('error loggin in')
     }
 
+
     // clear form values
-    setFormState({
+    setUserData({
       email: '',
       password: '',
     });
   };
 
   return (
-    <React.Fragment>
-      <Container className="container" style={{ }}>
-        <form>
-            <h3>Sign In</h3>
-            <div className="mb-3">
-              <label>Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Enter email"
-              />
-            </div>
-            <div className="mb-3">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter password"
-              />
-            </div>
-            <div className="mb-3" >
-            </div>
-            <div className="d-grid">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
-            <p className="forgot-password text-right">
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <div className="card-body">
+            {data ? (
+              <Link to="/">back to the homepage.</Link>
+            ) : (
+              
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={userData.email}
+                  onChange={handleInputChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={userData.password}
+                  onChange={handleInputChange}
+                />
+                <button
+                  className="btn btn-block btn-info"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+              
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+          <p className="forgot-password text-right">
               Don't have an account? <a href="/signup"> sign up here</a>
             </p>
-          </form>
-        </Container>
-      </React.Fragment>
+        </div>
+      </div>
+    </main>
   );
 };
 

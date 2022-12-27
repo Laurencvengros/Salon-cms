@@ -7,7 +7,13 @@ export const GET_ME = gql`
       name
       email
       salonName
-      clients
+      clients{
+          _id
+          firstName
+          lastName
+          email
+          phone
+      }
     }
   }
 `;
