@@ -3,13 +3,27 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import AddClient from "./AddClient";
+import { Container, CardColumns,  Button } from 'react-bootstrap';
+
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../utils/queries";
+
+
+
 
 function Clients(props) {
   const [clients, setClients] = useState([]);
 
+  const{ loading, data} =useQuery(GET_ME);
+  const userData =data?.me || [];
+
+ 
+
   return (
 
     <div>
+      <div>
+      </div>
       <div>
         {clients.map(client => (
           <div className="clientContainer">
@@ -17,6 +31,7 @@ function Clients(props) {
               <Card.Header className="clientHeader">{client.firstName} {client.lastName}</Card.Header>
               <Card.Body className="clientData">{client.email}</Card.Body>
               <Card.Body className="clientData">{client.phone}</Card.Body>
+             
             </Card>
           </div>
         ))}
