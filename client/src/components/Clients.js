@@ -13,7 +13,7 @@ function Clients(props) {
       <div>
         {clients.map(client => (
           <div className="clientContainer">
-            <Card className="clientCards" style={{ width: '25rem' }}>
+            <Card className="clientCards" style={{ width: '20rem' }}>
               <Card.Header className="clientHeader">{client.firstName} {client.lastName}</Card.Header>
               <Card.Body className="clientData">{client.email}</Card.Body>
               <Card.Body className="clientData">{client.phone}</Card.Body>

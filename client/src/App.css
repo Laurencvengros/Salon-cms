@@ -121,13 +121,6 @@ div.row-cols-1 {
   margin-left: 4rem;
 }
 
-@media (min-width: 1200px) { 
-  .clientCards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
 .clientContainer {
   padding: 1rem;
 }
