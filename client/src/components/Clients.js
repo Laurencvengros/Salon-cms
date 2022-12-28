@@ -12,9 +12,12 @@ function Clients(props) {
     <div>
       <div>
         {clients.map(client => (
-          <div>
-            <p>{client.firstName} {client.lastName} {client.email} </p>
-            <p>{client.phone}</p>
+          <div className="clientContainer">
+            <Card className="clientCards" style={{ width: '25rem' }}>
+              <Card.Header className="clientHeader">{client.firstName} {client.lastName}</Card.Header>
+              <Card.Body className="clientData">{client.email}</Card.Body>
+              <Card.Body className="clientData">{client.phone}</Card.Body>
+            </Card>
           </div>
         ))}
       </div>
