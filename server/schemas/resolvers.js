@@ -7,7 +7,7 @@ const resolvers ={
         users: async () => {
             return User.find();
         },
-        me: async (parent, {userId}, context) =>{
+        me: async (parent, args, context) =>{
             if(context.user){
                 const userData = await User.findOne({_id:context.user._id})
                 .select('-__v -password');

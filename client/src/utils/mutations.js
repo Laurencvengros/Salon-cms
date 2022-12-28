@@ -4,10 +4,16 @@ export const ADD_CLIENT = gql`
   mutation addClient($userId: ID!, $firstName: String!, $lastName: String!, $email: String, $phone: Int) {
     addClient(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone) {
       _id
-      firstName
-      lastName
+      name
       email
-      phone 
+      salonName
+      clients{
+          _id
+          firstName
+          lastName
+          email
+          phone
+      }
     }
   }
 `;
