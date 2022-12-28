@@ -1,6 +1,13 @@
 import React from 'react';
-
-
+import Navigation from "./components/Navigation";
+import Calendar from "./components/Calendar";
+import Clients from "./components/Clients";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import { useState } from "react";
+import Login from "./components/Login"
+import SignUp from "./components/Signup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Pages from "./components/Routes";
 import {
@@ -37,10 +44,27 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [formIsOpen, setFormOpen] = useState(false);
+  function openClientForm(props) {
+    setFormOpen(true);
+  }
+  function closeClientForm() {
+    setFormOpen(false);
+  }
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Pages />
+        <Router>
+          <Navigation />
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/clients" element={<Clients openClientForm={openClientForm} formIsOpen={formIsOpen} closeClientForm={closeClientForm} />} />
+            <Route exact path="/calendar" element={<Calendar />} />
+            <Route exact path="/signup" element={<SignUp />} />
+          </Routes>
+          <Footer />
+        </Router>
       </div>
     </ApolloProvider>
   );

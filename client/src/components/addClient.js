@@ -2,7 +2,11 @@ import { useState } from "react";
 import { ADD_CLIENT } from "../utils/mutations";
 import { useMutation } from "@apollo/client"
 
-const AddClient = () => {
+import Auth from '../utils/auth'
+
+
+
+const AddClient = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +20,8 @@ const AddClient = () => {
     })
 
     console.log(data);
-
+    props.setClients(data.addClient.clients)
+    props.onCancel()
   };
 
   return (
