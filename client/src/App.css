@@ -72,7 +72,8 @@ div.row-cols-1 {
 /* CLIENT PAGE  */
 
 .addClientBtn {
-  margin-left: 50px;
+  margin-left: 5rem;
+  margin-top: 2rem;
   background-color: #706E51;
   color: white;
   border: none;
@@ -112,6 +113,25 @@ div.row-cols-1 {
   border-radius: .2rem;
   padding: 8px;
   margin-top: 1rem;
+}
+
+/* CLIENT CARDS */
+
+.clientCards {
+  margin-left: 4rem;
+}
+
+.clientContainer {
+  padding: 1rem;
+}
+
+.clientHeader {
+  background-color: #FCF9F4;
+  color: #706E51;
+}
+
+.clientData {
+  color: #706E51;
 }
 /* FOOTER  */
 
