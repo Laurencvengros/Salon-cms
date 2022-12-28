@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from "./components/Navigation";
 import Calendar from "./components/Calendar";
 import Clients from "./components/Clients";
+import AllClients from "./components/AllClients"
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { useState } from "react";
@@ -60,6 +61,7 @@ function App() {
             <Route exact path="/" element={<Login />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/clients" element={<Clients openClientForm={openClientForm} formIsOpen={formIsOpen} closeClientForm={closeClientForm} />} />
+            <Route exact path="/allclients" element={<AllClients />} />
             <Route exact path="/calendar" element={<Calendar />} />
             <Route exact path="/signup" element={<SignUp />} />
           </Routes>

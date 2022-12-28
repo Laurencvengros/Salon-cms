@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import  Container from 'react-bootstrap/Container';
 import AddClient from "./AddClient";
+
+
 
 function Clients(props) {
   const [clients, setClients] = useState([]);
 
-  return (
+  
 
+
+  return (
+    
+      
+    
     <div>
       <div>
         {clients.map(client => (
@@ -24,6 +32,7 @@ function Clients(props) {
       {props.formIsOpen ? <AddClient setClients={setClients}
         onCancel={props.closeClientForm} /> : <button className="addClientBtn" onClick={props.openClientForm}>Add New Client</button>}
     </div>
+    
   );
 }
 

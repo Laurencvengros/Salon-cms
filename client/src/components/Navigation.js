@@ -14,7 +14,10 @@ function Navigation() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavLink to="/clients" className="navLinks">
-              Clients
+              Add Clients
+            </NavLink>
+            <NavLink to="/allclients" className="navLinks">
+              View Clients
             </NavLink>
             <NavLink to="/calendar" className="navLinks">
               Calendar
