@@ -1,7 +1,15 @@
 import Card from "react-bootstrap/Card";
 import salon from "../assets/salon.jpg";
 
+import { useQuery } from '@apollo/client';
+import {GET_CLIENTS} from '../utils/queries'
+
 function Home(props) {
+
+  const {data} = useQuery(GET_CLIENTS);
+
+  const userData = data?.me || []
+
   const cardStyle = {
     border: "none",
   };
@@ -9,7 +17,7 @@ function Home(props) {
     <Card id="home" className="text-center" style={cardStyle}>
       <Card.Body>
         <Card.Title className="homeTitle">
-          Welcome to Your Salon Dashboard
+         Welcome To Your Dashboard {userData.name}!
         </Card.Title>
         <Card.Text className="homeText">
           “Without creativity, there would be no progress, and we would be
