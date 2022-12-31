@@ -92,7 +92,7 @@ const Login = (props) => {
             )}
           </div>
           <p className="forgot-password text-right" style={{paddingLeft:'10pt'}}>
-              Don't have an account? <a href="/signup"> sign up here</a>
+              Don't have an account? <a href="/signup" style={{ color:'#706E51'}}> sign up here</a>
             </p>
         </div>
       </div>

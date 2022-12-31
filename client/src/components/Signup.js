@@ -109,7 +109,7 @@ const SignUp = () => {
             )}
           </div>
           <p className="forgot-password text-right" style={{paddingLeft:'10pt'}}>
-              Already have an account? <a href="/"> log in here</a>
+              Already have an account? <a href="/" style={{ color:'#706E51'}}> log in here</a>
             </p>
         </div>
       </div>
