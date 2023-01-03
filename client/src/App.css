@@ -133,6 +133,20 @@ div.row-cols-1 {
 .clientData {
   color: #706E51;
 }
+
+button.deleteClientBtn,
+button.editClientBtn {
+  margin-top: .3rem;
+  display: block;
+  width: 50%;
+  justify-content: center;
+  padding: 0px;
+  background-color: #FCF9F4;
+  color: #706E51;
+  border: 1px solid #706E51;
+
+  
+}
 /* FOOTER  */
 
 .footer {
