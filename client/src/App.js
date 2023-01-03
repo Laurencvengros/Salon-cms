@@ -18,6 +18,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import EditClient from './components/EditClient';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,8 +41,22 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      user: {
+        fields: {
+          clients: {
+            // Equivalent to options.mergeObjects(existing, incoming).
+            merge: true,
+            keyFields: ["_id"],
+          },
+        },
+      },
+    },
+  })
 });
+
+ 
 
 
 function App() {
@@ -52,6 +67,9 @@ function App() {
   function closeClientForm() {
     setFormOpen(false);
   }
+
+
+
   return (
     <ApolloProvider client={client}>
       <div className="App">
@@ -62,6 +80,7 @@ function App() {
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/clients" element={<Clients openClientForm={openClientForm} formIsOpen={formIsOpen} closeClientForm={closeClientForm} />} />
             <Route exact path="/allclients" element={<AllClients />} />
+            <Route exact path="/editclient" element={<EditClient />} />
             <Route exact path="/calendar" element={<Calendar />} />
             <Route exact path="/signup" element={<SignUp />} />
           </Routes>

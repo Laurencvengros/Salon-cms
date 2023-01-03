@@ -19,6 +19,25 @@ export const ADD_CLIENT = gql`
   }
 `;
 
+export const EDIT_CLIENT =gql`
+mutation editClient( $firstName: String!, $lastName: String!, $email: String, $phone: String) {
+  editClient( firstName: $firstName, lastName: $lastName, email: $email, phone: $phone) {
+    _id
+    name 
+    email
+    salonName
+    clients {
+      _id
+      firstName
+      lastName
+      email
+      phone
+    }
+
+  }
+}
+`
+
 export const ADD_USER = gql`
   mutation addUser($name: String!, $email: String!, $password: String!, $salonName: String!){
     addUser(name: $name, email: $email, password: $password, salonName: $salonName){

@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { isValidObjectId } = require('mongoose');
 const User = require('../models/User');
 const { signToken } = require('../utils/auth');
 
@@ -75,17 +76,20 @@ const resolvers = {
             throw new AuthenticationError('you need to login!');
 
         },
-        editClient: async (parent, { userId, clientId, firstName, lastName, email, phone }, context) => {
+        editClient: async (parent, {firstName, lastName, email, phone}, context) => {
             if (context.user) {
                 const updatedClient = await User.findOneAndUpdate(
-                    { _id: userId },
-                    { $set: { clients: { _id: clientId, firstName, lastName, email, phone } } },
+                    { _id: context.user._id, "clients._id": _id },
+                   
+                    { $set: { clients: {firstName, lastName, email, phone} } },
                     { new: true, runValidators: true }
                 );
                 return updatedClient
             }
             throw new AuthenticationError('you need to login!')
         },
+        
+        
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
