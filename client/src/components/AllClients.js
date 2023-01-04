@@ -32,7 +32,7 @@ const AllClients = () => {
 
   return (
     <Container>
-      <h1> Current Clients</h1>
+      <h1 className="allClientsPage"> Current Clients</h1>
 
       <div>
         <Row>
