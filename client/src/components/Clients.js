@@ -18,7 +18,7 @@ function Clients(props) {
 
     <Container>
 
-      <div>
+      <div class="text-center">
         <div>
           <Row>
             {clients.map(client => (
@@ -37,7 +37,7 @@ function Clients(props) {
           </Row>
         </div>
         {props.formIsOpen ? <AddClient setClients={setClients}
-          onCancel={props.closeClientForm} /> : <button className="addClientBtn" onClick={props.openClientForm}>Add New Client</button>}
+          onCancel={props.closeClientForm} /> : <button className="addClientBtn" onClick={props.openClientForm}  style={{ marginBottom: '300px', marginTop: '200px', backgroundColor: '#706E51', color: 'white', border: 'none', borderRadius: '.2rem', fontSize: '30px'}} class="btn  btn-lg">Add New Client</button>}
       </div>
     </Container>
 

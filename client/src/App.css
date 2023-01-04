@@ -28,6 +28,14 @@ a.navLinks {
   color: #FCF9F4;
 }
 
+@media screen and (max-width: 1189px) {
+  #navText {
+    display: none;
+  }
+ 
+  
+}
+
 span.navbar-text {
   color: #FCF9F4;
 }
@@ -62,29 +70,33 @@ div.row-cols-1 {
 
 .homeTitle {
   padding: 1rem;
+  font-size: 70px;
+  color:#B19C8D;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* CLIENT PAGE  */
 
-.addClientBtn {
+/* .addClientBtn {
   margin-left: 5rem;
   margin-top: 2rem;
   background-color: #706E51;
   color: white;
   border: none;
   border-radius: .2rem;
-}
+} */
 
-.allClientsPage {
+/* .allClientsPage {
   font-size: 2rem;
   color: #706E51;
-}
+} */
 
 /* ADD NEW CLIENT FORM  */
 .create {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  color: #706E51;
 }
 
 .create label {
@@ -116,10 +128,10 @@ div.row-cols-1 {
 }
 
 /* CLIENT CARDS */
-
+/* 
 .clientCards {
   margin-left: 4rem;
-}
+} */
 
 .clientContainer {
   padding: 1rem;

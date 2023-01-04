@@ -32,15 +32,15 @@ const AllClients = () => {
 
   return (
     <Container>
-      <h1 className="allClientsPage"> Current Clients</h1>
+      <h1 style={{textAlign: 'center', color: '#706E51'}}> Current Clients</h1>
 
       <div>
         <Row>
 
           {userData.clients?.map(client => (
 
-            <Col xs={12} md={6} lg={4}>
-              <Card className="clientCards" style={{ width: '20rem', marginTop: '30px' }}>
+            <Col xs={12} sm={7} md={6} lg={4} >
+              <Card style={{ width: '18rem', marginTop: '30px', marginLeft: '10px' }}>
                 <Card.Header className="clientHeader">{client.firstName} {client.lastName}</Card.Header>
                 <Card.Body className="clientData">Email: {client.email}</Card.Body>
                 <Card.Body className="clientData">Phone: {client.phone}</Card.Body>
