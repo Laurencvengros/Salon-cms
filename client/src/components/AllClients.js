@@ -21,7 +21,7 @@ const AllClients = () => {
 
   const [modalShow, setModalShow] = React.useState(false);
 
-  const [client, deletedClient] = useState("");
+  const [clientToUpdate, setClient] = useState({_id: "", firstName: "", lastName: "", email: "", phone: ""});
 
 
   const handleDelete = async (e) => {
@@ -46,15 +46,21 @@ const AllClients = () => {
                 <Card.Body className="clientData">Phone: {client.phone}</Card.Body>
                 <>
                   <div className="d-flex justify-content-around">
-                    <Button className="editClientBtn" onClick={() => setModalShow(true)}>
+                    <Button className="editClientBtn" onClick={() => {
+                      setClient(client)
+                      setModalShow(true)
+                    }}>
                       Edit Client
                     </Button>
                     <Button onClick={handleDelete} data-id={client._id} className="deleteClientBtn">Delete</Button>
                   </div>
                   <EditClient
                     show={modalShow}
-                    client={client}
-                    onHide={() => setModalShow(false)}
+                    client={clientToUpdate}
+                    onHide={() =>{
+                      setClient({})
+                      setModalShow(false)}
+                    } 
                   />
                 </>
               </Card>
