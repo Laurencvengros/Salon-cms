@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import  Container from 'react-bootstrap/Container';
-import AddClient from "./AddClient";
+import addClient from "./addClient";
 
 
 
@@ -36,7 +36,7 @@ function Clients(props) {
         ))}
          </Row>
       </div>
-      {props.formIsOpen ? <AddClient setClients={setClients}
+      {props.formIsOpen ? <addClient setClients={setClients}
         onCancel={props.closeClientForm} /> : <button className="addClientBtn" onClick={props.openClientForm}>Add New Client</button>}
     </div>
     </Container>
