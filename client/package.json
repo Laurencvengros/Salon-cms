@@ -2,7 +2,7 @@
   "name": "salon-cms",
   "version": "0.1.0",
   "private": true,
-  "proxy": "",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@aldabil/react-scheduler": "^2.6.3",
     "@apollo/client": "^3.7.3",
