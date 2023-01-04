@@ -64,10 +64,10 @@ const resolvers = {
             }
 
         },
-        deleteClient: async (parent, { userId, clientId }, context) => {
+        deleteClient: async (parent, { clientId }, context) => {
             if (context.user) {
                 const updatedClient = await User.findOneAndUpdate(
-                    { _id: userId },
+                    { _id: context.user._id },
                     { $pull: { clients: { _id: clientId } } },
                     { new: true, runValidators: true }
                 );
@@ -76,20 +76,20 @@ const resolvers = {
             throw new AuthenticationError('you need to login!');
 
         },
-        editClient: async (parent, {firstName, lastName, email, phone}, context) => {
+        editClient: async (parent, { clientId, firstName, lastName, email, phone }, context) => {
             if (context.user) {
                 const updatedClient = await User.findOneAndUpdate(
-                    { _id: context.user._id, "clients._id": _id },
-                   
-                    { $set: { clients: {firstName, lastName, email, phone} } },
+                    { _id: context.user._id, "clients._id": clientId },
+
+                    { $set: { clients: { firstName, lastName, email, phone } } },
                     { new: true, runValidators: true }
                 );
                 return updatedClient
             }
             throw new AuthenticationError('you need to login!')
         },
-        
-        
+
+
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 

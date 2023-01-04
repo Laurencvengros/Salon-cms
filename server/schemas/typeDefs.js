@@ -38,8 +38,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(name: String!, email: String!, password: String!, salonName: String!): Auth
         addClient(firstName: String!, lastName: String!, email: String, phone: String): User
-        deleteClient(userId: ID!, clientId: ID!): User
-        editClient( firstName: String!, lastName: String!, email: String, phone: String): User
+        deleteClient(clientId: ID!): User
+        editClient( clientId: ID!, firstName: String!, lastName: String!, email: String, phone: String): User
     }
     
 `
