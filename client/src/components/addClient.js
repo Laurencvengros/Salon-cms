@@ -20,7 +20,7 @@ const AddClient = (props) => {
         })
 
         console.log(data);
-        props.setClients(data.addClient.clients)
+        props.setClients(data.addClient.clients);
         props.onCancel()
     };
 
