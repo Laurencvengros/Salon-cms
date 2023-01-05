@@ -20,7 +20,7 @@ const AddClient = (props) => {
         })
 
         console.log(data);
-        props.setClients(data.addClient.clients)
+        props.setClients(data.addClient.clients);
         props.onCancel()
     };
 
@@ -54,7 +54,8 @@ const AddClient = (props) => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                 />
-                <button>Add Client</button>
+                
+                <button style={{marginRight: '100px'}}>Add Client</button>
             </form>
         </div>
     );

@@ -87,7 +87,7 @@ function EditClient(props) {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleSubmit}>Update</Button>
+        <Button onClick={handleSubmit} data-id={props.client._id}>Update</Button>
       </Modal.Footer>
     </Modal>
   );

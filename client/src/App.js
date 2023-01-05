@@ -10,7 +10,7 @@ import Login from "./components/Login"
 import SignUp from "./components/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Pages from "./components/Routes";
+
 import {
   ApolloClient,
   InMemoryCache,

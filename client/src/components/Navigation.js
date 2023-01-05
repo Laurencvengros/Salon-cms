@@ -22,14 +22,14 @@ function Navigation() {
 
   return (
   
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar sticky="top" collapseOnSelect expand="xl">
       <Container>
         <NavLink to="/home" className="navBrand">
-          Salon CMS
+          {userData.salonName}
         </NavLink>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse  className="justify-content-end">
         
         {Auth.loggedIn() ? (
                 <>
@@ -46,14 +46,15 @@ function Navigation() {
                   </Nav>
 
                   
-                    <Navbar.Text className="navText">
+                    <Navbar.Text className="navLinks" id='navText'>
                       Signed in as: {userData.name}
                         
                     </Navbar.Text>  
                   
-                    <NavLink onClick={logout} className="navLinks">
+                    <NavLink onClick={logout} style={{marginLeft: '80px', textDecoration: 'none', color: '#FCF9F4'}} id='logout'>
                             LogOut
                     </NavLink>
+                  
                     </>
               ) : (
                   <NavLink to="/" className="navLinks justify-content-end"> Login/Sign Up </NavLink>

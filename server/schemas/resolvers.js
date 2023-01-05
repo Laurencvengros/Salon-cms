@@ -3,6 +3,16 @@ const { isValidObjectId } = require('mongoose');
 const User = require('../models/User');
 const { signToken } = require('../utils/auth');
 
+const updateClients = (client,  updatedClient )=> {
+    console.log(client._id)
+    console.log(updatedClient.clientId)
+    if(client._id == updatedClient.clientId){
+        return updatedClient
+    }else{
+        return client
+    }
+}
+
 const resolvers = {
     Query: {
         users: async () => {
@@ -64,10 +74,10 @@ const resolvers = {
             }
 
         },
-        deleteClient: async (parent, { userId, clientId }, context) => {
+        deleteClient: async (parent, { clientId }, context) => {
             if (context.user) {
                 const updatedClient = await User.findOneAndUpdate(
-                    { _id: userId },
+                    { _id: context.user._id },
                     { $pull: { clients: { _id: clientId } } },
                     { new: true, runValidators: true }
                 );
@@ -76,20 +86,26 @@ const resolvers = {
             throw new AuthenticationError('you need to login!');
 
         },
-        editClient: async (parent, {firstName, lastName, email, phone}, context) => {
+        editClient: async (parent, { clientId, firstName, lastName, email, phone }, context) => {
             if (context.user) {
-                const updatedClient = await User.findOneAndUpdate(
-                    { _id: context.user._id, "clients._id": _id },
-                   
-                    { $set: { clients: {firstName, lastName, email, phone} } },
+                const user = await User.findOne(
+                    { _id: context.user._id}
+                    
+                )
+                newClients = user.clients.map(client => updateClients(client, {clientId, firstName, lastName, email, phone}))
+                console.log(newClients)
+                const updatedClients = await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    {$set: {clients: newClients}},
                     { new: true, runValidators: true }
-                );
-                return updatedClient
+                )
+               console.log(updatedClients)
+                return updatedClients
             }
             throw new AuthenticationError('you need to login!')
         },
-        
-        
+
+
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 

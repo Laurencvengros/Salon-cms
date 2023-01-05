@@ -6,8 +6,9 @@ import { IconContext } from "react-icons";
 function Footer() {
   return (
     <React.Fragment>
-      <IconContext.Provider value={{ color: "#706E51", size: "2em" }}>
-        <footer className="footer">
+      <IconContext.Provider value={{ color: "#706E51", size: "4em" }}>
+        <footer className="footer sticky-bottom">
+        <div className="phantom"> </div>
           <div className="createdBy">
             <h4 className="createdBy">
               Created by:
