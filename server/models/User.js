@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const clientSchema= require('./Clients')
+const eventSchema = require('./Events')
 
 const userSchema = new Schema(
     {
@@ -26,7 +27,8 @@ const userSchema = new Schema(
             required: true,
             trim: true,
         },
-        clients: [clientSchema]
+        clients: [clientSchema],
+        events: [eventSchema]
     }
 );
 

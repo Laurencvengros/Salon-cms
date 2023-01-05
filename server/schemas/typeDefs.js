@@ -5,6 +5,7 @@ const typeDefs = gql`
         users: [User]
         me: User
         
+        
     }
     type Clients {
         _id: ID!
@@ -21,9 +22,10 @@ const typeDefs = gql`
         password: String!
         salonName: String!
         clients: [Clients]
+        events: [Event]
     }
     type Event {
-        event_id: ID!
+        event_id: String!
         title: String!
         start: Int
         end: Int
@@ -40,6 +42,7 @@ const typeDefs = gql`
         addClient(firstName: String!, lastName: String!, email: String, phone: String): User
         deleteClient(clientId: ID!): User
         editClient( clientId: ID!, firstName: String!, lastName: String!, email: String, phone: String): User
+        addEvent(title: String!, start: String!, end: String!): User
     }
     
 `

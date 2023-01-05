@@ -1,11 +1,16 @@
 import { Scheduler } from "@aldabil/react-scheduler";
 import React from "react";
 
+
 function Calendar() {
+  
+  
+
   return (
     <React.Fragment>
       <div className="calendarContainer">
         <Scheduler
+       
           view="month"
           events={[
             {
@@ -21,6 +26,7 @@ function Calendar() {
               end: new Date("2021/5/4 11:00"),
             },
           ]}
+     
         />
       </div>
     </React.Fragment>

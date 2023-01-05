@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema} = require('mongoose');
 
-const clientSchema = require('./Clients');
+
 
 const eventSchema = new Schema(
     {
@@ -14,18 +14,18 @@ const eventSchema = new Schema(
             required: true,
         },
         start: {
-            type: Date,
+            type: String,
             required: true,
         },
         end: {
-            type: Date,
+            type: String,
             required: true,
         },
-        client:  [clientSchema]
+        
         
     },
 );
 
-const Events =model('Events', eventSchema);
 
-module.exports = Events;
+
+module.exports = eventSchema;

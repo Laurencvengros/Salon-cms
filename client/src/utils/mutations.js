@@ -83,5 +83,20 @@ export const LOGIN_USER = gql`
     }
   }
 `
-
+export const ADD_EVENT = gql`
+mutation addEvent($event_id: String! $title: String!, $start: String!, $end: String!){
+  addEvent( event_id:$event_id, title: $title, start: $start, end: $end){
+    _id
+    name
+    email
+    salonName
+    events{
+      event_id
+      title
+      start
+      end
+    }
+  }
+}
+`
 

@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { isValidObjectId } = require('mongoose');
 const User = require('../models/User');
 const { signToken } = require('../utils/auth');
+const Events = require('../models/Events')
 
 const updateClients = (client,  updatedClient )=> {
     console.log(client._id)
@@ -27,17 +28,7 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to log in first!');
         },
-        // user: async(parent, {userId}, context) =>{
-        //     if(context.me){
-        //         const userData = await User.findOne({_id:context.userId})
-        //         .select('-__v -password');
-
-        //         return userData
-        //     }
-        //     throw new AuthenticationError("Please Login First")
-
-        // },
-
+       
 
     },
 
@@ -121,6 +112,28 @@ const resolvers = {
 
             const token = signToken(user);
             return { token, user };
+        },
+        addEvent: async (parent, { event_id, title, start, end }, context) => {
+            try {
+                if (context.user) {
+                    const newEvent = await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        {
+                            $addToSet: { event: {event_id, title, start, end } }
+                        },
+                        {
+                            new: true,
+                            runValidators: true,
+                        }
+                    );
+                    console.log(newEvent);
+                    return newEvent;
+                }
+                throw new AuthenticationError('you need to login!');
+            } catch (err) {
+                console.log(err)
+                throw new AuthenticationError('Error');
+            }
         }
     }
 
