@@ -83,6 +83,7 @@ function App() {
             <Route exact path="/editclient" element={<EditClient />} />
             <Route exact path="/calendar" element={<Calendar />} />
             <Route exact path="/signup" element={<SignUp />} />
+            <Route path="*" element={"not found"}></Route>
           </Routes>
           <Footer />
         </Router>
